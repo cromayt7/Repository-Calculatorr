@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Conversão de tipos</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+	<div class="container">
+		<form>
+			<p>
+				Digite o primeiro número: <input type="number" id="digito1">
+			</p>
+			<p>
+				Digite o segundo número: <input type="number" id="digito2">
+			</p>
+			<p><button type="button" onclick="Salvardados(1)">Soma</button></p>
+			<p><button type="button" onclick="Salvardados(2)">Subtração</button></p>
+			<p><button type="button" onclick="Salvardados(3)">Divisão</button></p>
+			<p><button type="button" onclick="Salvardados(4)">Multiplicação</button></p>
+			<p>Resultado: <input type="text" id="result" readonly></p>
+			<div id="divResult"></div>
+		</form>
+	</div>
+
+    <script> 
+	function Salvardados(param) {
+		let digito1 = document.getElementById("digito1").value;
+		let digito2 = document.getElementById("digito2").value;
+		let resultado;
+
+		if(param == 1) {
+			resultado = parseFloat(digito1) + parseFloat(digito2);
+		} else if(param == 2) {
+			resultado = parseFloat(digito1) - parseFloat(digito2);
+		} else if(param == 3) {
+			if (parseFloat(digito2) !== 0) {
+				resultado = parseFloat(digito1) / parseFloat(digito2);
+			} else {
+				resultado = "Erro: Divisão por zero";
+			}
+		} else if(param == 4) {
+			resultado = parseFloat(digito1) * parseFloat(digito2);
+		}
+
+		document.getElementById("result").value = resultado;
+	}
+	</script>
+</body>
+</html>
